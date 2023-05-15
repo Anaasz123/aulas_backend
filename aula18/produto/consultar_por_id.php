@@ -25,9 +25,8 @@ $comando->execute();
 $resultado = $comando->get_result();
 
 //pegar a primeira linha de resultado
-$linha = $resultado->fetch_assoc();
+$produto = $resultado->fetch_assoc();
 
-var_dump($linha);
 
 }
 
