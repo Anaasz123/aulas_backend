@@ -2,22 +2,21 @@
 
 require_once "../conexao.php";
 
-if(isset($_POST["nome"]) && isset($_POST["descricao"])
-      && isset($_POST["preco"]))
+if(isset($_POST["nome"]) && isset($_POST["login"])
+      && isset($_POST["senha"]))
 {
 
 
 //inclui o arquivo para salvar a foto do upload
 require_once "salvar_foto.php";
-
-$id= $_POST['id']; 
+      
 $nome=       $_POST["nome"];
 $login = $_POST["login"];
-$senha =  passaword_hash   ($_POST["senha"], PASSWORD_DEFAULT);
+$senha =  password_hash($_POST["senha"], PASSWORD_DEFAULT);
 $foto = $nome_arquivo;
 
 //String com o comando SQL para ser executado no DB 
-$sql =" INSERT INTO `produto` (`nome`, `login`, `senha`, `foto`)
+$sql =" INSERT INTO `usuario` (`nome`, `login`, `senha`, `foto`)
          VALUES (?, ?, ?, ?);";
 echo $sql;
 
@@ -25,7 +24,7 @@ echo $sql;
 $comando = $conexao->prepare($sql);
 
 //adiciona os valores nos parametros
-$comando->bind_param("ssds", $nome, $login, $senha, $foto);
+$comando->bind_param("ssss", $nome, $login, $senha, $foto);
 
 //executa o SQL - Comando no Banco de dados
 $comando->execute();

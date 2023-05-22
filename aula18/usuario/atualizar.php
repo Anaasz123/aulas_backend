@@ -6,32 +6,29 @@ if(isset($_POST["nome"]) && isset($_POST["descricao"])
       && isset($_POST["preco"]))
 {
 
-
-//inclui o arquivo para salvar a foto do upload
-require_once "salvar_foto.php";
-
-$id= $_POST['id']; 
+$id=       $_POST["id"];
 $nome=       $_POST["nome"];
-$login = $_POST["login"];
-$senha =  passaword_hash   ($_POST["senha"], PASSWORD_DEFAULT);
-$foto = $nome_arquivo;
+$descricao = $_POST["descricao"];
+$preco =     $_POST["preco"];
+$foto = "semfoto.png";
 
 //String com o comando SQL para ser executado no DB 
-$sql =" INSERT INTO `produto` (`nome`, `login`, `senha`, `foto`)
-         VALUES (?, ?, ?, ?);";
-echo $sql;
+$sql =" UPDATE produto SET
+  `nome`= ? ,  `descricao`=? , `preco`=?, `foto`=? 
+   WHERE `idproduto`=? ";
+
 
 //Prepara o SQL para ser executado no banco de dados
 $comando = $conexao->prepare($sql);
 
 //adiciona os valores nos parametros
-$comando->bind_param("ssds", $nome, $login, $senha, $foto);
+$comando->bind_param("ssdsi", $nome, $descricao, $preco, $foto, $id);
 
 //executa o SQL - Comando no Banco de dados
 $comando->execute();
 
 }
 //abre o arquivo form.php
-header("Location: usuarios.php");
+header("Location: produtos.php");
 
 
