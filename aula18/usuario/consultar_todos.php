@@ -1,6 +1,6 @@
 <?php
-
-require_once "../conexao.php";
+include_once "../template/cabecalho.php";
+require_once "..//produtos/consultar_todos.php";
 
 
 //String com o comando SQL para ser executado no DB
