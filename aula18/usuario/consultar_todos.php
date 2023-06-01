@@ -1,27 +1,26 @@
 <?php
-include_once "../template/cabecalho.php";
-require_once "..//produtos/consultar_todos.php";
 
+require_once "../conexao.php";
 
-//String com o comando SQL para ser executado no DB
-$sql = "SELECT * FROM usuario ; ";
+//string com o comando slq para ser executado no db
+$sql = "SELECT * FROM `usuario`"; 
 
-//Prepara o SQL para ser executado no banco de dados
+//prepara o sql para ser executado  no banco de dados
 $comando = $conexao->prepare($sql);
 
-//executa o SQL - Comando no Banco de Dados
+//executa o sql - comando no banco de dados
 $comando->execute();
 
 //pegar o resultado da consulta
 $resultado = $comando->get_result();
+
 //cria um vetor vazio
 $usuarios = [];
 
-//pegar todas as linhas do resultado
-while ($usuario= $resultado->fetch_assoc()) {
-
-   $usuarios[] = $usuario;
-
+//pega todas as linhas do resultado
+while($usuario = $resultado->fetch_assoc()){
+    //adiociona o produto (linha do resultado) no vetor
+    $usuarios[] = $usuario;
 }
 
 
