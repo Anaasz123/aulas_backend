@@ -1,6 +1,6 @@
-<?php
+<?php  require_once "../controla_sessão/controla.php"; ?>
 
-require_once "../conexao.php";
+<?php require_once "../conexao.php";
 
 //verifica se foi enviado o param id pela URL
 if(isset($_GET['id']))

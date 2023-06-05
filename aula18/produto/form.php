@@ -1,3 +1,4 @@
+<?php require_once "../controla_sessão/controla.php"; ?>
 <?php require_once "consultar_por_id.php" ?>
 
 <!DOCTYPE html>

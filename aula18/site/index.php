@@ -19,7 +19,7 @@ include_once "../produto/consultar_todos.php";
             $categorias[] = $value["categoria"];
         ?>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="index.php?categoria=<?= $value["categoria"]; ?>">
                 <?php echo $value["categoria"]; ?>
               </a>
             </li>
