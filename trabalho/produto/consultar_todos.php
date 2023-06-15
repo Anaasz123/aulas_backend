@@ -15,12 +15,12 @@ $comando->execute();
 //pegar o resultado da consulta
 $resultado = $comando->get_result();
 //cria um vetor vazio
-$produtos = [];
+$receitas = [];
 
 //pegar todas as linhas do resultado
-while ($produto = $resultado->fetch_assoc()) {
+while ($receita = $resultado->fetch_assoc()) {
 
-   $receitas[] = $receitas;
+   $receitas[] = $receita;
 
 }
 

@@ -1,16 +1,16 @@
-<?php
 
-require_once "../conexao.php";
+
+<?php require_once "../conexao.php";
 
 //verifica se foi enviado o param id pela URL
-if(isset($_GET['id']))
+if(isset($_GET['ID']))
 {
 
 //pega o valor do id que foi enviada pela URL
-$id = $_GET['id'];
+$id = $_GET['ID'];
 
 //String com o comando SQL para ser executado no DB 
-$sql =" SELECT * FROM `receitas` WHERE  `idproduto`= ?;";
+$sql =" DELETE FROM `receitas` WHERE  `ID`= ?;";
 
 //Prepara o SQL para ser executado no banco de dados
 $comando = $conexao->prepare($sql);
@@ -21,16 +21,10 @@ $comando->bind_param("i", $id);
 //executa o SQL - Comando no Banco de dados
 $comando->execute();
 
-//pegar o resultado da consulta
-$resultado = $comando->get_result();
-
-//pegar a primeira linha de resultado
-$produto = $resultado->fetch_assoc();
-
-
 }
 
-
+//abre o arquivo form.php
+header("Location: index.php");
 
 
 
