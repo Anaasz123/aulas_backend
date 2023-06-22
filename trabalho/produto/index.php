@@ -6,7 +6,7 @@
         <h1>receitas</h1>
         <hr>
         <div class="text-end">
-            <a href="form.php" class="btn btn-success">Inserir receita</a>
+            <a href="form.php" class="btn btn-success">Inserir Receita</a>
         </div>
 
         <table class="table" id="myTable">
@@ -15,7 +15,8 @@
                     <th scope="col">Nome</th>
                     <th scope="col">Ingredientes</th>
                     <th scope="col">modoPreparo</th>
-                    <th scope="col">tempopreparo</th>
+                    <th scope="col">tempo (min)</th>
+                    <th scope="col">ações</th>
                 </tr>
             </thead>
             <body>
@@ -28,8 +29,8 @@
                           
                         
                         <td>
-                            <a href="excluir.php?ID=<?php echo $receitas['ID'];?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i>Excluir</a>
-                            <a href="form.php?ID=<?php echo $receitas['ID'];?>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i>Atualizar</a>
+                            <a href="excluir.php?ID=<?php echo $receita['ID'];?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i>Excluir</a>
+                            <a href="form.php?ID=<?php echo $receita['ID'];?>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i>Atualizar</a>
                         </td>
                     </tr>
                 <?php } ?>
